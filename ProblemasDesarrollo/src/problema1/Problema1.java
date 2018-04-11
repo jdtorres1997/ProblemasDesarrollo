@@ -6,6 +6,7 @@
 package problema1;
 
 import cuenta.*;
+import tarjetas.*;
 
 /**
  *
@@ -14,6 +15,8 @@ import cuenta.*;
 public class Problema1 extends javax.swing.JFrame {
 
     AdaptadorCuenta adaptadorCuenta;
+    AdaptadorTarjetaDebito adaptadorTarjetaD;
+    AdaptadorTarjetaCredito adaptadorTarjetaC;
 
     /**
      * Creates new form Problema1
@@ -225,10 +228,11 @@ public class Problema1 extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(td10)
                             .addComponent(tcoro))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tdoro)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tdestandar)))
+                        .addComponent(tdestandar)
+                        .addGap(3, 3, 3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(transButton)
                 .addGap(23, 23, 23))
@@ -264,9 +268,34 @@ public class Problema1 extends javax.swing.JFrame {
         
         
         int flag = 0;
-        
+        TarjetaDebito tarjetaD = null;
+        TarjetaCredito tarjetaC = null;
         if(tdjoven.isSelected()){
-            
+            tarjetaD = new TarjetaDebitoJoven();
+            flag = 1;
+        } else if (td10.isSelected()){
+            tarjetaD = new TarjetaDebito10();
+            flag = 1;
+        }else if (tdoro.isSelected()){
+            tarjetaD = new TarjetaDebitoOro();
+            flag = 1;
+        }else if (tdestandar.isSelected()){
+            tarjetaD = new TarjetaDebitoEstandar();
+            flag = 1;
+        } else if (tc10.isSelected()){
+            tarjetaC = new TarjetaCredito10();
+            flag = 2;
+        }else if (tcoro.isSelected()){
+            tarjetaC = new TarjetaCreditoOro();
+            flag = 2;
+        }
+        
+        if(flag == 1){
+            adaptadorTarjetaD = new AdaptadorTarjetaDebito(tarjetaD);
+            adaptadorTarjetaD.order(destino, cantidad);
+        }else{
+            adaptadorTarjetaC = new AdaptadorTarjetaCredito(tarjetaC);
+            adaptadorTarjetaD.order(destino, cantidad);
         }
     }//GEN-LAST:event_transButtonActionPerformed
 
