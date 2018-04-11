@@ -3,12 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+;
 package Problema2;
 
 /**
  *
  * @author krypth
  */
+import cuenta.*;
+import tarjetas.*;
+import Problema2.MiFachada;
+import problema1.*;
+
 public class Problema2 extends javax.swing.JPanel {
 
     /**
@@ -47,7 +54,7 @@ public class Problema2 extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         tc10 = new javax.swing.JRadioButton();
         tcoro = new javax.swing.JRadioButton();
-        destinoField1 = new javax.swing.JTextField();
+        operacionField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
         coro.setText("Cuenta Oro");
@@ -108,9 +115,9 @@ public class Problema2 extends javax.swing.JPanel {
 
         tcoro.setText("Tarjeta Oro");
 
-        destinoField1.addActionListener(new java.awt.event.ActionListener() {
+        operacionField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                destinoField1ActionPerformed(evt);
+                operacionFieldActionPerformed(evt);
             }
         });
 
@@ -141,7 +148,7 @@ public class Problema2 extends javax.swing.JPanel {
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(destinoField1)
+                    .addComponent(operacionField)
                     .addComponent(destinoField, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                     .addComponent(cantidadField, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
@@ -189,7 +196,7 @@ public class Problema2 extends javax.swing.JPanel {
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(destinoField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(operacionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -250,12 +257,53 @@ public class Problema2 extends javax.swing.JPanel {
     }//GEN-LAST:event_destinoFieldActionPerformed
 
     private void transButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transButtonActionPerformed
-      
+      String destino = "";
+        float cantidad;
+        String operacion= "";
+        operacion = operacionField.getText();
+        destino = destinoField.getText();
+        cantidad = Float.parseFloat(cantidadField.getText());
+        Cuenta cuenta = null;
+
+        if (cjoven.isSelected()) {
+            cuenta = new CuentaJoven();
+        } else if (c10.isSelected()) {
+            cuenta = new Cuenta10();
+        } else if (coro.isSelected()) {
+            cuenta = new CuentaOro();
+        } else if (cestandar.isSelected()) {
+            cuenta = new CuentaEstandar();
+        }
+       
+        int flag = 0;
+        TarjetaDebito tarjetaD = null;
+        TarjetaCredito tarjetaC = null;
+        if(tdjoven.isSelected()){
+            tarjetaD = new TarjetaDebitoJoven();
+            flag = 1;
+        } else if (td10.isSelected()){
+            tarjetaD = new TarjetaDebito10();
+            flag = 1;
+        }else if (tdoro.isSelected()){
+            tarjetaD = new TarjetaDebitoOro();
+            flag = 1;
+        }else if (tdestandar.isSelected()){
+            tarjetaD = new TarjetaDebitoEstandar();
+            flag = 1;
+        } else if (tc10.isSelected()){
+            tarjetaC = new TarjetaCredito10();
+            flag = 2;
+        }else if (tcoro.isSelected()){
+            tarjetaC = new TarjetaCreditoOro();
+            flag = 2;
+        }
+        MiFachada fachada = new MiFachada();
+        fachada.llamar(cantidad, destino, operacion, flag, cuenta, tarjetaD,tarjetaC);
     }//GEN-LAST:event_transButtonActionPerformed
 
-    private void destinoField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoField1ActionPerformed
+    private void operacionFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_destinoField1ActionPerformed
+    }//GEN-LAST:event_operacionFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -265,7 +313,6 @@ public class Problema2 extends javax.swing.JPanel {
     private javax.swing.JRadioButton cjoven;
     private javax.swing.JRadioButton coro;
     private javax.swing.JTextField destinoField;
-    private javax.swing.JTextField destinoField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -274,6 +321,7 @@ public class Problema2 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JTextField operacionField;
     private javax.swing.JRadioButton tc10;
     private javax.swing.JRadioButton tcoro;
     private javax.swing.JRadioButton td10;

@@ -45,7 +45,7 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="destinoField1" max="32767" attributes="0"/>
+                  <Component id="operacionField" max="32767" attributes="0"/>
                   <Component id="destinoField" alignment="0" pref="117" max="32767" attributes="0"/>
                   <Component id="cantidadField" alignment="0" pref="117" max="32767" attributes="0"/>
               </Group>
@@ -107,7 +107,7 @@
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="destinoField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="operacionField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -278,9 +278,9 @@
         <Property name="text" type="java.lang.String" value="Tarjeta Oro"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="destinoField1">
+    <Component class="javax.swing.JTextField" name="operacionField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="destinoField1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="operacionFieldActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
