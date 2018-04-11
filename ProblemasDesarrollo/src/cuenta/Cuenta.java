@@ -10,7 +10,7 @@ package cuenta;
  *
  * @author jdtorres
  */
-abstract class Cuenta {
+public abstract class Cuenta {
     
     String entidad, sucursal, numeroCuenta;
     
@@ -21,4 +21,8 @@ abstract class Cuenta {
     public abstract void ingresar();
     
     public abstract void retirar();
+    
+    public void transferir(float importe, String cuentaDestino){
+        System.out.println("Transferencia realizada en cuenta");
+    };
 }

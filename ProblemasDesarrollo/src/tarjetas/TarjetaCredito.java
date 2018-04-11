@@ -9,11 +9,16 @@ package tarjetas;
  *
  * @author jdtorres
  */
-abstract class TarjetaCredito {
-    
+public abstract class TarjetaCredito {
+
     public abstract void retirar();
-    
+
     public abstract void ingresar();
-    
+
     public abstract void pagar();
+
+    public void transferir(float importe, String cuentaDestino) {
+        System.out.println("Transferencia realizada en tarjeta");
+    }
+;
 }
