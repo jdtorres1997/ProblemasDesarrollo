@@ -3,23 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-;
 package Problema2;
 
+
+import cuenta.*;
+import tarjetas.*;
 /**
  *
  * @author krypth
  */
-import cuenta.*;
-import tarjetas.*;
-import Problema2.MiFachada;
-import problema1.*;
-
-public class Problema2 extends javax.swing.JPanel {
+public class Problema2 extends javax.swing.JFrame {
 
     /**
-     * Creates new form Problema2
+     * Creates new form NewJFrame
      */
     public Problema2() {
         initComponents();
@@ -34,57 +30,38 @@ public class Problema2 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        coro = new javax.swing.JRadioButton();
-        cestandar = new javax.swing.JRadioButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        tdjoven = new javax.swing.JRadioButton();
-        td10 = new javax.swing.JRadioButton();
-        tdoro = new javax.swing.JRadioButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         tdestandar = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         destinoField = new javax.swing.JTextField();
+        operacionField = new javax.swing.JTextField();
         cantidadField = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        coro = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
+        cestandar = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         transButton = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        tdjoven = new javax.swing.JRadioButton();
         cjoven = new javax.swing.JRadioButton();
+        td10 = new javax.swing.JRadioButton();
         c10 = new javax.swing.JRadioButton();
-        jLabel7 = new javax.swing.JLabel();
-        tc10 = new javax.swing.JRadioButton();
+        tdoro = new javax.swing.JRadioButton();
         tcoro = new javax.swing.JRadioButton();
-        operacionField = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        tc10 = new javax.swing.JRadioButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
-        coro.setText("Cuenta Oro");
-        coro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coroActionPerformed(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cestandar.setText("Cuenta Estandar");
-
-        jLabel5.setText("Tipo de tarjeta origen");
-
-        jLabel6.setText("Débito");
-
-        tdjoven.setText("Tarjeta joven");
-        tdjoven.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tdjovenActionPerformed(evt);
-            }
-        });
-
-        td10.setText("Tarjeta 10");
-
-        tdoro.setText("Tarjeta Oro");
-
+        buttonGroup1.add(tdestandar);
         tdestandar.setText("Tarjeta Estandar");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Realizar transferencia");
+        jLabel1.setText("Realizar Operacion");
 
         destinoField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +69,26 @@ public class Problema2 extends javax.swing.JPanel {
             }
         });
 
+        operacionField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                operacionFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Operacion");
+
+        buttonGroup2.add(coro);
+        coro.setText("Cuenta Oro");
+        coro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coroActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Cuenta destino");
+
+        buttonGroup2.add(cestandar);
+        cestandar.setText("Cuenta Estandar");
 
         jLabel3.setText("Cantidad");
 
@@ -103,39 +99,44 @@ public class Problema2 extends javax.swing.JPanel {
             }
         });
 
+        jLabel6.setText("Débito");
+
         jLabel4.setText("Tipo de cuenta destino");
 
-        cjoven.setText("Cuenta Joven");
-
-        c10.setText("Cuenta 10");
-
-        jLabel7.setText("Credito");
-
-        tc10.setText("Tarjeta 10");
-
-        tcoro.setText("Tarjeta Oro");
-
-        operacionField.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(tdjoven);
+        tdjoven.setText("Tarjeta joven");
+        tdjoven.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                operacionFieldActionPerformed(evt);
+                tdjovenActionPerformed(evt);
             }
         });
 
-        jLabel8.setText("Operacion");
+        buttonGroup2.add(cjoven);
+        cjoven.setText("Cuenta Joven");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        buttonGroup1.add(td10);
+        td10.setText("Tarjeta 10");
+
+        buttonGroup2.add(c10);
+        c10.setText("Cuenta 10");
+
+        buttonGroup1.add(tdoro);
+        tdoro.setText("Tarjeta Oro");
+
+        buttonGroup1.add(tcoro);
+        tcoro.setText("Tarjeta Oro");
+
+        buttonGroup1.add(tc10);
+        tc10.setText("Tarjeta 10");
+
+        jLabel7.setText("Credito");
+
+        jLabel5.setText("Tipo de tarjeta origen");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(226, 226, 226))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(transButton)
-                        .addGap(277, 277, 277))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +169,7 @@ public class Problema2 extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel7)
                                 .addGap(22, 22, 22))
                             .addComponent(tdoro)
@@ -185,15 +186,22 @@ public class Problema2 extends javax.swing.JPanel {
                         .addGap(262, 262, 262)
                         .addComponent(jLabel5)
                         .addGap(32, 32, 32))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(transButton)
+                        .addGap(277, 277, 277))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(177, 177, 177))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addGap(100, 100, 100)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(operacionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -206,6 +214,8 @@ public class Problema2 extends javax.swing.JPanel {
                             .addComponent(cantidadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -242,24 +252,26 @@ public class Problema2 extends javax.swing.JPanel {
                 .addComponent(transButton)
                 .addGap(23, 23, 23))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void coroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_coroActionPerformed
-
-    private void tdjovenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tdjovenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tdjovenActionPerformed
 
     private void destinoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinoFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_destinoFieldActionPerformed
 
+    private void operacionFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_operacionFieldActionPerformed
+
+    private void coroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coroActionPerformed
+
     private void transButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transButtonActionPerformed
-      String destino = "";
+        String destino = "";
         float cantidad;
-        String operacion= "";
+        String operacion = "";
         operacion = operacionField.getText();
         destino = destinoField.getText();
         cantidad = Float.parseFloat(cantidadField.getText());
@@ -274,39 +286,76 @@ public class Problema2 extends javax.swing.JPanel {
         } else if (cestandar.isSelected()) {
             cuenta = new CuentaEstandar();
         }
-       
+
         int flag = 0;
         TarjetaDebito tarjetaD = null;
         TarjetaCredito tarjetaC = null;
-        if(tdjoven.isSelected()){
+        if (tdjoven.isSelected()) {
             tarjetaD = new TarjetaDebitoJoven();
             flag = 1;
-        } else if (td10.isSelected()){
+        } else if (td10.isSelected()) {
             tarjetaD = new TarjetaDebito10();
             flag = 1;
-        }else if (tdoro.isSelected()){
+        } else if (tdoro.isSelected()) {
             tarjetaD = new TarjetaDebitoOro();
             flag = 1;
-        }else if (tdestandar.isSelected()){
+        } else if (tdestandar.isSelected()) {
             tarjetaD = new TarjetaDebitoEstandar();
             flag = 1;
-        } else if (tc10.isSelected()){
+        } else if (tc10.isSelected()) {
             tarjetaC = new TarjetaCredito10();
             flag = 2;
-        }else if (tcoro.isSelected()){
+        } else if (tcoro.isSelected()) {
             tarjetaC = new TarjetaCreditoOro();
             flag = 2;
         }
         MiFachada fachada = new MiFachada();
-        fachada.llamar(cantidad, destino, operacion, flag, cuenta, tarjetaD,tarjetaC);
+        fachada.llamar(cantidad, destino, operacion, flag, cuenta, tarjetaD, tarjetaC);
     }//GEN-LAST:event_transButtonActionPerformed
 
-    private void operacionFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operacionFieldActionPerformed
+    private void tdjovenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tdjovenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_operacionFieldActionPerformed
+    }//GEN-LAST:event_tdjovenActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Problema2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Problema2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Problema2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Problema2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Problema2().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JRadioButton c10;
     private javax.swing.JTextField cantidadField;
     private javax.swing.JRadioButton cestandar;

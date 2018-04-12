@@ -22,7 +22,13 @@ public abstract class Cuenta {
     
     public abstract void retirar();
     
-    public void transferir(float importe, String cuentaDestino){
+    public void transferir(float importe, String cuentaDestino) {
         System.out.println("Transferencia realizada en cuenta");
-    };
+    }
+    public void retirar(float importe, String cuentaDestino) {
+        System.out.println("Retiro realizado en cuenta");
+    }
+    public void consultarSaldo(float importe, String cuentaDestino) {
+        System.out.println("Consulta del saldo realizada en cuenta");
+    }
 }

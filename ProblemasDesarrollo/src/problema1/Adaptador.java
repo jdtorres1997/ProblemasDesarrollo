@@ -5,14 +5,16 @@
  */
 package problema1;
 
-
-
 /**
  *
  * @author jdtorres
  */
 interface Adaptador {
-    
-    public void order(String target, float amount);
-    
+
+    public void transferencias(String target, float amount);
+
+    public void retiros(String target, float amount);
+
+    public void consultarSaldo(String target, float amount);
+
 }

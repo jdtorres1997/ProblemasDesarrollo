@@ -16,10 +16,24 @@ public class AdaptadorCuenta implements Adaptador{
         adaptado = cuenta;
     }
     
+    
+
     @Override
-    public void order(String target, float amount) {
-       System.out.println("Realizando transferencia en cuenta...");
-       adaptado.transferir(amount, target);
+    public void transferencias(String target, float amount) {
+        System.out.println("Realizando transferencia en cuenta...");
+        adaptado.transferir(amount, target);
+    }
+
+    @Override
+    public void retiros(String target, float amount) {
+        System.out.println("Realizando retiro en cuenta...");
+        adaptado.retirar(amount, target);
+    }
+
+    @Override
+    public void consultarSaldo(String target, float amount) {
+        System.out.println("Realizando consulta de saldo en cuenta...");
+        adaptado.consultarSaldo(amount, target);
     }
     
 }
