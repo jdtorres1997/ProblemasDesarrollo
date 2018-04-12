@@ -20,5 +20,11 @@ public abstract class TarjetaCredito {
     public void transferir(float importe, String cuentaDestino) {
         System.out.println("Transferencia realizada en tarjeta");
     }
-;
+    public void retirar(float importe, String cuentaDestino) {
+        System.out.println("Retiro realizado en tarjeta");
+    }
+    public void consultarSaldo(float importe, String cuentaDestino) {
+        System.out.println("Consulta del saldo realizada en tarjeta");
+    }
+
 }

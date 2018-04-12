@@ -225,8 +225,8 @@ public class Problema1 extends javax.swing.JFrame {
                             .addComponent(tdjoven)
                             .addComponent(tc10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(td10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(td10, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(tcoro))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tdoro)
@@ -264,7 +264,7 @@ public class Problema1 extends javax.swing.JFrame {
         }
         
         adaptadorCuenta = new AdaptadorCuenta(cuenta); //Se inicializa el adaptador, pasandole a quien va a adaptar
-        adaptadorCuenta.order(destino, cantidad);//Mandar orden al adaptadot
+        adaptadorCuenta.transferencias(destino, cantidad);//Mandar orden al adaptadot
         
         
         int flag = 0;
@@ -292,10 +292,10 @@ public class Problema1 extends javax.swing.JFrame {
         
         if(flag == 1){
             adaptadorTarjetaD = new AdaptadorTarjetaDebito(tarjetaD);
-            adaptadorTarjetaD.order(destino, cantidad);
+            adaptadorTarjetaD.transferencias(destino, cantidad);
         }else{
             adaptadorTarjetaC = new AdaptadorTarjetaCredito(tarjetaC);
-            adaptadorTarjetaD.order(destino, cantidad);
+            adaptadorTarjetaD.transferencias(destino, cantidad);
         }
     }//GEN-LAST:event_transButtonActionPerformed
 
